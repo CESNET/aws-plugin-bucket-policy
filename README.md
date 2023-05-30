@@ -31,11 +31,11 @@ pip install aws-plugin-bucket-policy-X.Y.Z/
 [profile profile_name]
 output = text
 s3 =
-    endpoint_url = <endpoint_url>
+    endpoint_url = ENDPOINT_URL
 s3api =
-    endpoint_url = <endpoint_url>
+    endpoint_url = ENDPOINT_URL
 s3bucket-policy = 
-    endpoint_url = <endpoint_url>
+    endpoint_url = ENDPOINT_URL
 
 [plugins]
 s3bucket-policy = aws_plugin_bucket_policy
@@ -49,17 +49,18 @@ endpoint = awscli_plugin_endpoint
 aws_access_key_id = ...
 aws_secret_access_key = ...
 ```
-or using environment variables: AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
-(without ```--profile```, but ```--endpoint <endpoint_url>``` needed)
+or using environment variables: AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY \
+(without ```--profile```, but ```--endpoint ENDPOINT_URL``` needed)
 
-* For help run ```aws s3bucket-policy help``` and ```aws s3bucket-policy <subcommand> help```
+## Help
+* For help run ```aws s3bucket-policy help``` or ```aws s3bucket-policy SUBCOMMAND help```
 
 ## Examples:
 ```python
-aws s3bucket-policy [--profile <profile_name>] get-policy --bucket <bucket_name>
-aws s3bucket-policy [--profile <profile_name>] new-policy --bucket <bucket_name> --newpol-type share-w-user --newpol-spec tenant=<tenant_name>,user=<user_name>,action=rw
-aws s3bucket-policy [--profile <profile_name>] new-policy --bucket <bucket_name> --newpol-type share-w-tenant --newpol-spec tenant=<tenant_name>,action=ro
-aws s3bucket-policy [--profile <profile_name>] new-policy --bucket <bucket_name> --newpol-type ro-public
-aws s3bucket-policy [--profile <profile_name>] put-policy --bucket <bucket_name> --policy <policy_file.json>
-aws s3bucket-policy [--profile <profile_name>] delete-policy --bucket <bucket_name>
+aws s3bucket-policy --profile PROFILE_NAME get-policy --bucket BUCKET_NAME
+aws s3bucket-policy --profile PROFILE_NAME new-policy --bucket BUCKET_NAME --newpol-type share-w-user --newpol-spec tenant=TENANT_NAME,user=USER_NAME,action=rw
+aws s3bucket-policy --profile PROFILE_NAME new-policy --bucket BUCKET_NAME --newpol-type share-w-tenant --newpol-spec tenant=TENANT_NAME,action=ro
+aws s3bucket-policy --profile PROFILE_NAME new-policy --bucket BUCKET_NAME --newpol-type ro-public
+aws s3bucket-policy --profile PROFILE_NAME put-policy --bucket BUCKET_NAME --policy POLICY_FILE.json
+aws s3bucket-policy --profile PROFILE_NAME delete-policy --bucket BUCKET_NAME
 ```
