@@ -11,8 +11,9 @@ AWS CLI plugin - bucket policy admin tool
 
 * Build & Install aws-plugin-bucket-policy with poetry:
 ```python
-git clone https://github.com/CESNET/aws-plugin-bucket-policy
-cd aws-plugin-bucket-policy
+wget https://github.com/CESNET/aws-plugin-bucket-policy/archive/refs/heads/main.zip
+unzip main.zip
+cd aws-plugin-bucket-policy-main
 poetry build
 cd dist
 tar -xvf aws-plugin-bucket-policy-X.Y.Z.tar.gz
