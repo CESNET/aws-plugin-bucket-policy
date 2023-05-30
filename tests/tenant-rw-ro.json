@@ -1,0 +1,42 @@
+{
+  "Id": "policy-TEST",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "statement-TEST",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": [
+          "test_tenant1"
+        ]
+      },
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::test_bucket",
+        "arn:aws:s3:::test_bucket/*"
+      ]
+    },
+    {
+      "Sid": "statement-TEST",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": [
+          "test_tenant2"
+        ]
+      },
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::test_bucket",
+        "arn:aws:s3:::test_bucket/*"
+      ]
+    }
+  ]
+}

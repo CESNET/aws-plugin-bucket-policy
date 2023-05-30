@@ -1,0 +1,115 @@
+{
+  "Id": "policy-TEST",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "statement-TEST",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::test_tenant1:user/test_user0"
+        ]
+      },
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::test_bucket",
+        "arn:aws:s3:::test_bucket/*"
+      ]
+    },
+    {
+      "Sid": "statement-TEST",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::test_tenant1:user/test_user1"
+        ]
+      },
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::test_bucket/prefix1",
+        "arn:aws:s3:::test_bucket/prefix1/*"
+      ]
+    },
+    {
+      "Sid": "statement-TEST",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::test_tenant1:user/test_user1"
+        ]
+      },
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::test_bucket"
+      ],
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": [
+            "prefix1/*"
+          ]
+        },
+        "StringEquals": {
+          "s3:delimiter": [
+            "/"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "statement-TEST",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::test_tenant1:user/test_user2"
+        ]
+      },
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::test_bucket/prefix2",
+        "arn:aws:s3:::test_bucket/prefix2/*"
+      ]
+    },
+    {
+      "Sid": "statement-TEST",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::test_tenant1:user/test_user2"
+        ]
+      },
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::test_bucket"
+      ],
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": [
+            "prefix2/*"
+          ]
+        },
+        "StringEquals": {
+          "s3:delimiter": [
+            "/"
+          ]
+        }
+      }
+    }
+  ]
+}
