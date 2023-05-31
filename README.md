@@ -67,8 +67,9 @@ aws s3bucket-policy --profile PROFILE_NAME delete-policy --bucket BUCKET_NAME
 ```
 
 ## Docker way:
-* Dockerfile based on ubuntu:jammy
+* `Dockerfile` based on ubuntu:jammy
 * S3 credentials should be defined in `S3_env` as AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables:
+  (see `S3_env.template` file)
 ```python
 AWS_ACCESS_KEY_ID=***
 AWS_SECRET_ACCESS_KEY=***
