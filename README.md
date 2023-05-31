@@ -47,8 +47,8 @@ endpoint = awscli_plugin_endpoint
 * S3 credentials: ```.aws/credentials```:
 ```python
 [profile_name]
-aws_access_key_id = ...
-aws_secret_access_key = ...
+aws_access_key_id = ***
+aws_secret_access_key = ***
 ```
 or using environment variables: AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY \
 (without ```--profile```, but ```--endpoint ENDPOINT_URL``` needed)
@@ -64,4 +64,20 @@ aws s3bucket-policy --profile PROFILE_NAME new-policy --bucket BUCKET_NAME --new
 aws s3bucket-policy --profile PROFILE_NAME new-policy --bucket BUCKET_NAME --newpol-type ro-public
 aws s3bucket-policy --profile PROFILE_NAME put-policy --bucket BUCKET_NAME --policy POLICY_FILE.json
 aws s3bucket-policy --profile PROFILE_NAME delete-policy --bucket BUCKET_NAME
+```
+
+## Docker way:
+* Dockerfile based on ubuntu:jammy
+* S3 credentials should be defined in `S3_env` as AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables:
+```python
+AWS_ACCESS_KEY_ID=***
+AWS_SECRET_ACCESS_KEY=***
+```
+* Usage examples:
+```python
+docker build -t s3bucket-policy .
+docker run -it --rm -u awscli --env-file=S3_env --name s3bucket-policy s3bucket-policy --endpoint ENDPOINT_URL get-policy --bucket BUCKET_NAME
+docker run -it --rm -u awscli --env-file=S3_env --name s3bucket-policy s3bucket-policy --endpoint ENDPOINT_URL help
+docker run -it --rm -u awscli --env-file=S3_env --name s3bucket-policy s3bucket-policy --endpoint ENDPOINT_URL new-policy help
+docker run -it --rm -u awscli --env-file=S3_env --name s3bucket-policy s3bucket-policy --endpoint ENDPOINT_URL new-policy --bucket BUCKET_NAME --newpol-type share-w-tenant --newpol-spec tenant=TENANT_NAME,action=ro
 ```
