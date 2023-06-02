@@ -55,7 +55,7 @@ or using environment variables: AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY \
 
 ## Help
 * For help run ```aws s3bucket-policy help``` or ```aws s3bucket-policy SUBCOMMAND help```
-* [Command manual on GitHub](https://github.com/CESNET/aws-plugin-bucket-policy/blob/main/docs/commands.md)
+* [Plugin commands manual on GitHub](https://github.com/CESNET/aws-plugin-bucket-policy/blob/main/docs/commands.md)
 
 ## Examples:
 ```python

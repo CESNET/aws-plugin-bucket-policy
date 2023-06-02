@@ -14,19 +14,19 @@
    ... (string) Bucket name, if omitted display selection from existing buckets
  * `--newpol-type`
    ... (string) New bucket policy use-case.
-    * "ro-public": public read-only bucket;
-    * "share-w-user": bucket shared with  specified  users;
-    * "share-w-tenant":  bucket shared with all users from specified tenants.
-    * "share-prefix-w-user": prefix in bucket shared with specified users;
+    * `ro-public`: public read-only bucket;
+    * `share-w-user`: bucket shared with  specified  users;
+    * `share-w-tenant`:  bucket shared with all users from specified tenants.
+    * `share-prefix-w-user`: prefix in bucket shared with specified users;
 
  * `--newpol-spec`
    ... (string) New bucket policy use-case  specification.
-   	* newpol-type "ro-public": not applicable
-   	* newpol-type "share-w-user":
+   	* newpol-type `ro-public`: not applicable
+   	* newpol-type `share-w-user`:
    	    `tenant=TENANT_NAME,user=USER_NAME,action=[rw|ro]` can  be  repeated
-   	* newpol-type "share-w-tenant":
+   	* newpol-type `share-w-tenant`:
         `tenant=TENANT_NAME,action=[rw|ro]` can be repeated
-    * newpol-type "share-prefix-w-user":
+    * newpol-type `share-prefix-w-user`:
         `tenant=TENANT_NAME,user=USER_NAME,action=[rw|ro],prefix=PREFIX`
         can be repeated,
         prefix could contain url-like "%hex" characters
@@ -53,10 +53,10 @@
  * `--profile`
    ... (string) Use a specific profile from your credential file
  * `--nofzf`
-   ... (boolean) Disable fzf support
+   ... (boolean) Disable [fzf](https://github.com/dahlia/iterfzf) support
  * `--nonint`
    ... (boolean) Disable interactive UI
  * `--quiet`
    ... (boolean) Low verbosity output
  * `--dryrun`
-   ... (boolean) Dry run with all write ops disabled
+   ... (boolean) Dry-run with all write operations disabled
