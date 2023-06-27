@@ -16,14 +16,14 @@ unzip main.zip
 cd aws-plugin-bucket-policy-main
 poetry build
 cd dist
-tar -xvf aws-plugin-bucket-policy-X.Y.Z.tar.gz
+tar -xvf aws_plugin_bucket_policy-X.Y.Z.tar.gz
 ```
 ```
-pip install --user aws-plugin-bucket-policy-X.Y.Z/
+pip install --user aws_plugin_bucket_policy-X.Y.Z/
 ```
 or in virtualenv without ```--user```:
 ```
-pip install aws-plugin-bucket-policy-X.Y.Z/
+pip install aws_plugin_bucket_policy-X.Y.Z/
 ```
 
 ## Configuration
