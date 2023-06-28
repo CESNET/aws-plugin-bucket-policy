@@ -79,10 +79,10 @@ class S3Command(BasicCommand):
     def get_bucket_owner(self, bn):
         apiresp = self.client.get_bucket_acl(Bucket=bn)
         if 'Owner' in apiresp and 'ID' in apiresp['Owner']:
-            rer = re.match(r'^(.+)\$(.+)$', apiresp['Owner']['ID'])
+            rer = re.match(r'^((.+)\$)?(.+)$', apiresp['Owner']['ID'])
             if rer:
-                return { 'tenant': rer[1], 'user': rer[2] }
-        raise Exception(f'No or unknown bucket owner (bucket: {bn})')
+                return { 'tenant': rer[2], 'user': rer[3] }
+        raise Exception(f'Unknown or invalid bucket owner (bucket: {bn}, owner from API: "{apiresp["Owner"]["ID"]}")')
 
     def _cb_bucketSet(self, buckets):
         print(buckets)
