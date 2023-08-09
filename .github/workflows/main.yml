@@ -21,11 +21,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set up Python ver.${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
           python-version: ${{ env.PYTHON_VERSION }}
       - name: Cache pip
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           # This path is specific to Ubuntu
           path: ~/.cache/pip
@@ -41,14 +41,12 @@ jobs:
 
       - name: Install
         run: |
-          pwd
           pip install --force-reinstall .
 
       - name: Test
         run: |
-          ls -la
           cd tests
-          pytest -vvv -x
+          pytest -v -x
 
       - name: Publish package
         if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
