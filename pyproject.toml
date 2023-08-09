@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aws-plugin-bucket-policy"
-version = "0.1.0"
+version = "1.0.0"
 description = "awscli S3 bucket-policy plugin"
 authors = ["Tomas Hlava <hlava@cesnet.cz>"]
 readme = "README.md"
