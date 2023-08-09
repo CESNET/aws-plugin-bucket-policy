@@ -37,7 +37,7 @@ jobs:
 
       - name: Before_install
         run: |
-          pip install --upgrade pip setuptools pytest wheel
+          pip install --upgrade pip setuptools pytest wheel awscli
 
       - name: Install
         run: |
@@ -47,7 +47,7 @@ jobs:
 
       - name: Test
         run: |
-          cd tests
+          cd aws_plugin_bucket_policy/tests
           pytest -vvv -x
 
       - name: Publish package
