@@ -42,12 +42,12 @@ jobs:
       - name: Install
         run: |
           pwd
-          ls -la
           pip install --force-reinstall .
 
       - name: Test
         run: |
-          cd aws_plugin_bucket_policy/tests
+          ls -la
+          cd tests
           pytest -vvv -x
 
       - name: Publish package
