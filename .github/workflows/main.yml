@@ -47,7 +47,7 @@ jobs:
 
       - name: Test
         run: |
-				  cd tests
+          cd tests
           pytest -vvv -x
 
       - name: Publish package
