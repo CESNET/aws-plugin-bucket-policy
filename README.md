@@ -7,51 +7,22 @@ AWS CLI plugin - bucket policy admin tool
     optionally: python3-venv
 * Optionally start virtualenv: ```python3 -m venv venv; . venv/bin/activate```
 
-* ```pip install poetry pytest awscli_plugin_endpoint```
-
-* Build & Install aws-plugin-bucket-policy with poetry:
-```python
-wget https://github.com/CESNET/aws-plugin-bucket-policy/archive/refs/heads/main.zip
-unzip main.zip
-cd aws-plugin-bucket-policy-main
-poetry build
-cd dist
-tar -xvf aws_plugin_bucket_policy-X.Y.Z.tar.gz
-```
-```
-pip install --user aws_plugin_bucket_policy-X.Y.Z/
-```
-or in virtualenv without ```--user```:
-```
-pip install aws_plugin_bucket_policy-X.Y.Z/
-```
+* ```pip install --upgrade pip setuptools awscli aws-plugin-bucket-policy```
 
 ## Configuration
 * aws config ```.aws/config```:
 ```python
-[profile profile_name]
-output = text
-s3 =
-    endpoint_url = ENDPOINT_URL
-s3api =
-    endpoint_url = ENDPOINT_URL
-s3bucket-policy = 
-    endpoint_url = ENDPOINT_URL
-
 [plugins]
 s3bucket-policy = aws_plugin_bucket_policy
-endpoint = awscli_plugin_endpoint
-
 ```
 
 * S3 credentials: ```.aws/credentials```:
 ```python
-[profile_name]
+[default]
 aws_access_key_id = ***
 aws_secret_access_key = ***
 ```
 or using environment variables: AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY \
-(without ```--profile```, but ```--endpoint ENDPOINT_URL``` needed)
 
 ## Help
 * For help run ```aws s3bucket-policy help``` or ```aws s3bucket-policy SUBCOMMAND help```
