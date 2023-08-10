@@ -38,7 +38,7 @@ jobs:
 
       - name: Before_install
         run: |
-          pip install --upgrade pip setuptools pytest wheel awscli
+          pip install --upgrade pip setuptools pytest wheel build awscli
 
       - name: Install
         run: |
@@ -49,9 +49,13 @@ jobs:
           cd tests
           pytest -v -x
 
+      - name: Build
+        run: |
+          python -m build
+
       - name: Publish package
         if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
-        uses: pypa/gh-action-pypi-publish@master
+        uses: pypa/gh-action-pypi-publish@v1
         with:
           user: __token__
           password: ${{ secrets.PYPI_TOKEN }}
