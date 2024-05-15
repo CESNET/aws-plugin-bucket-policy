@@ -36,7 +36,7 @@ class BucketPolicy():
 
     def _parse_spec(self, spec):
         #specregs = {'tenant':r'^[a-zA-Z0-9_]+$', 'user':r'^[-a-zA-Z0-9_\.]+$' , 'action':r'^(rw|ro|li|all)$'}
-        specregs = {'tenant':r'^[a-zA-Z0-9_]+$', 'user':r'^[-a-zA-Z0-9_\.]+$' , 'action':r'^(rw|ro)$', 'prefix':f'^[-a-zA-Z0-9_/%]+$'}
+        specregs = {'tenant':r'^[a-zA-Z0-9_]+$', 'user':r'^[-a-zA-Z0-9_\.:]+$' , 'action':r'^(rw|ro)$', 'prefix':f'^[-a-zA-Z0-9_/%]+$'}
         rv = []
         for it in (spec if isinstance(spec, list) else []):
             toks = [tok.split('=') for tok in it.split(',')]

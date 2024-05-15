@@ -22,11 +22,11 @@ s3bucket-policy = aws_plugin_bucket_policy
 aws_access_key_id = ***
 aws_secret_access_key = ***
 ```
-or using environment variables: AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY \
+or using environment variables: AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
 
 ## Help
 * For help run ```aws s3bucket-policy help``` or ```aws s3bucket-policy SUBCOMMAND help```
-* [Plugin commands manual on GitHub](https://github.com/CESNET/aws-plugin-bucket-policy/blob/main/docs/commands.md)
+* [Plugin subcommands manual on GitHub](https://github.com/CESNET/aws-plugin-bucket-policy/blob/main/docs/commands.md)
 
 ## Examples:
 ```python
